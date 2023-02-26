@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.grey.shade100,
         appBar: AppBar(
             centerTitle: true,
-            title: Text("Flashcards App", style: TextStyle(fontSize: 30)),
+            title: Text("Capitales App", style: TextStyle(fontSize: 30)),
             backgroundColor: mainColor,
             toolbarHeight: 80,
             elevation: 5,
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-              Text("Question $value of 10 Completed", style: otherTextStyle),
+              Text("Question $value sur 10 complétée", style: otherTextStyle),
               SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                           text: quesAnsList[_currentIndexNumber].question),
                       back: ReusableCard(
                           text: quesAnsList[_currentIndexNumber].answer))),
-              Text("Tab to see Answer", style: otherTextStyle),
+              Text("cliquer pour voir la réponse", style: otherTextStyle),
               SizedBox(height: 20),
               Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,

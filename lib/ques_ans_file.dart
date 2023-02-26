@@ -6,37 +6,26 @@ class Flashcard {
 }
 
 List<Flashcard> quesAnsList = [
+  Flashcard(question: "Q.Qu'est est la capitale de Chine?", answer: "Beijing"),
   Flashcard(
-      question: "Q.Which country has the largest number of wild tigers?",
-      answer: "India has the largest number of wild tigers in the world."),
+      question: "Q.Quelle est la capitale de Bangladeish?", answer: "Dacca"),
   Flashcard(
-      question: "Q.Who is considered the founder of Maratha empire?",
-      answer: "chhatrapati Shivaji Maharaj"),
+      question: "Q.Quelle est la capitale de la Thaïlande?", answer: "Bangkok"),
   Flashcard(
-      question: "Q.Lala Lajpat Rai was also known as :",
-      answer: "Sher-e-Punjab"),
+      question: "Q.Quelle est est la capitale du Japon?", answer: "Tokyo"),
   Flashcard(
-      question:
-          "Q.Two of the great Mughals wrote their own memories. They were",
-      answer:
-          "Babar and Jahangir were two of the great Mughals wrote their own memories."),
+      question: "Q.Quelle est la capitale de la Corée du Sud?",
+      answer: "Séoul"),
   Flashcard(
-      question:
-          "Q.Which revolutionary freedom fighter’s life story inspired the movie “Sardar Udham” ?",
-      answer: "Udham Singh"),
+      question: "Q.Quelle est la capitale de la Corée du Nord",
+      answer: "Pyongyang"),
   Flashcard(
-      question: "Q.What other viruses belong to the coronavirus family?",
-      answer: "SARS and MERS"),
+      question: "Q.Quelle est la capitale de la Mongolie?",
+      answer: "Oulan Bator"),
+  Flashcard(question: "Q.Quelle est la capitale du Vietnam?", answer: "Hanoï"),
   Flashcard(
-      question: "Q.When did WHO come into force and what is the day called?",
-      answer: "7th April 1948, World Health Day"),
+      question: "Q.Quelle est la capitale de l'Inde?", answer: "New Dheli"),
   Flashcard(
-      question: "Q.What does COVID-19 stand for?",
-      answer: "Coronavirus disease of 2019."),
-  Flashcard(
-      question: "Q.Which scientist was the first to discover Coronavirus?",
-      answer: "June Almeida"),
-  Flashcard(
-      question: "Q.The Taj Mahal was built during the rule of:",
-      answer: "Shah Jahan"),
+      question: "Q.Quelle est la capitale de la Malaisie?",
+      answer: "Kuala Lumpur"),
 ];

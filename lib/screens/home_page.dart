@@ -16,6 +16,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndexNumber = 0;
   double _initial = 0.1;
+  final myController =
+      TextEditingController(); // Définir le contrôleur TextEditingController
+  int scoreGood = 0;
+  int scoreBad = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.grey.shade100,
         appBar: AppBar(
             centerTitle: true,
-            title: Text("Capitales App", style: TextStyle(fontSize: 30)),
+            title: Text("Quiz GPT", style: TextStyle(fontSize: 30)),
             backgroundColor: mainColor,
             toolbarHeight: 80,
             elevation: 5,
@@ -36,7 +40,11 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
               Text("Question $value sur 10 complétée", style: otherTextStyle),
-              SizedBox(height: 20),
+              SizedBox(height: 5),
+              Text(
+                  "$scoreGood  bonnes réponses et $scoreBad mauvaises réponses",
+                  style: otherTextStyle),
+              SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: LinearProgressIndicator(
@@ -49,14 +57,59 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 25),
               SizedBox(
                   width: 300,
-                  height: 300,
+                  height: 245,
                   child: FlipCard(
                       direction: FlipDirection.VERTICAL,
                       front: ReusableCard(
                           text: quesAnsList[_currentIndexNumber].question),
                       back: ReusableCard(
                           text: quesAnsList[_currentIndexNumber].answer))),
-              Text("cliquer pour voir la réponse", style: otherTextStyle),
+              //Text("cliquer pour voir la réponse", style: otherTextStyle),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        controller: myController,
+                        decoration: const InputDecoration(
+                          border: UnderlineInputBorder(),
+                          labelText: 'saisissez votre réponse',
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Validate returns true if the form is valid, or false otherwise.
+                        // If the form is valid, display a snackbar. In the real world,
+                        // you'd often call a server or save the information in a database.
+                        // Récupérer la valeur du champ TextFormField
+                        String value = myController.text;
+                        // Utiliser la valeur récupérée pour valider ou invalider la réponse
+                        if (value == quesAnsList[_currentIndexNumber].answer) {
+                          scoreGood = scoreGood + 1;
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Bravo! Bonne réponse!')),
+                          );
+                        } else {
+                          scoreBad = scoreBad + 1;
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                content: Text(
+                                    'Tu as saisi $value. Dommage. Essaye encore!')),
+                          );
+                        }
+                        // Forcer la mise à jour de l'interface graphique
+                        setState(() {});
+                      },
+                      child: const Text('valider'),
+                    ),
+                  ],
+                ),
+              ),
+
               SizedBox(height: 20),
               Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -69,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                         icon: Icon(FontAwesomeIcons.handPointLeft, size: 30),
                         label: Text(""),
                         style: ElevatedButton.styleFrom(
-                            primary: mainColor,
+                            backgroundColor: mainColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             padding: EdgeInsets.only(
@@ -82,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                         icon: Icon(FontAwesomeIcons.handPointRight, size: 30),
                         label: Text(""),
                         style: ElevatedButton.styleFrom(
-                            primary: mainColor,
+                            backgroundColor: mainColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             padding: EdgeInsets.only(

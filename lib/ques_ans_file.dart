@@ -6,7 +6,7 @@ class Flashcard {
 }
 
 List<Flashcard> quesAnsList = [
-  Flashcard(question: "Q.Qu'est est la capitale de Chine?", answer: "Beijing"),
+  Flashcard(question: "Q.Quelle est la capitale de Chine?", answer: "Beijing"),
   Flashcard(
       question: "Q.Quelle est la capitale de Bangladeish?", answer: "Dacca"),
   Flashcard(
